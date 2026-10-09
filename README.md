@@ -19,14 +19,12 @@ Pydantic AI executes the agent. **LoopGrid preserves and verifies the recorded d
 
 ## Install
 
-After the published release:
-
+Install from PyPI:
 ```bash
 pip install pydantic-ai-loopgrid==0.1.0
 ```
 
-Before publication, install the source checkout with Python 3.11+:
-
+For local development, install from source with Python 3.11+:
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e '.[dev]'
