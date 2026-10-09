@@ -1,0 +1,27 @@
+name: Publish to PyPI
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+jobs:
+  publish:
+    if: github.event.release.tag_name == 'v0.1.0'
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install build tools
+        run: python -m pip install build twine
+      - name: Build and check
+        run: |
+          python -m build
+          python -m twine check dist/*
+      - name: Publish
+        uses: pypa/gh-action-pypi-publish@release/v1

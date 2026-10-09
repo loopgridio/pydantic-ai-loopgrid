@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydantic-ai-loopgrid"
+version = "0.1.0"
+description = "Native Pydantic AI capability for signed, verifiable consequential agent action evidence"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE.md"]
+authors = [{name = "LoopGrid contributors"}]
+dependencies = ["pydantic-ai-slim>=2.42,<3", "loopgrid>=0.8.0,<0.9"]
+classifiers = [
+  "Development Status :: 4 - Beta", "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11", "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["pydantic-ai", "agent-evidence", "decision-evidence", "ed25519", "audit-trail"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "build>=1.2", "twine>=6"]
+
+[project.urls]
+Homepage = "https://loopgrid.io"
+Repository = "https://github.com/loopgridio/pydantic-ai-loopgrid"
+Documentation = "https://loopgrid.io/integrations/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
